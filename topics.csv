@@ -1,0 +1,31 @@
+id,title,outline,cta,hashtags
+1,Zero Trust for small teams,"Map critical assets|Segment access by role|Enforce continuous verification|Kill implicit trust in legacy VPNs|Start with one pilot app","What’s one app you’d move to Zero Trust this quarter?",#ZeroTrust #SMB #Cybersecurity #Identity
+2,AI threat detection vs classic SIEM,"Define your signals (logs vs behaviors)|Pair rules with ML anomaly detection|Tune to reduce alert fatigue|Measure mean-time-to-detect","Where do you see the biggest blind spot today?",#AI #SIEM #DetectionEngineering #BlueTeam
+3,Passkeys in 2025 (FIDO2),"Why phishing-resistant beats OTP|Device-bound vs synced credentials|Rollout tips for hybrid orgs|What to do with legacy SSO","Would you pilot passkeys for a subset of users first?",#Passkeys #FIDO2 #Authentication #IAM
+4,Software supply chain & SBOM,"Inventory third-party components|Track CVEs → exploitability|Automate SBOM in CI|Sign artifacts (Sigstore)|Gate releases with policy","What’s your first SBOM milestone?",#SupplyChain #SBOM #DevSecOps
+5,Prompt-injection defenses for LLM apps,"Define model I/O boundaries|Constrain tools & contexts|Sanitize and segment prompts|Add allow/deny patterns|Human-in-the-loop for high risk","What tool calls would you restrict first?",#LLM #PromptSecurity #AppSec
+6,Ransomware-as-a-Service trends,"Initial access via valid accounts|Data extortion without encryption|Backups ≠ recovery|Tabletop double-extortion scenarios","When did you last test a bare-metal restore?",#Ransomware #IR #Backup
+7,API security basics that work,"Inventory public endpoints|Strong auth for machine clients|Rate limiting & abuse detection|Schema validation & contract tests","Which endpoint deserves a security review this week?",#APIsecurity #AppSec #OWASP
+8,Cloud misconfigurations to kill,"Open buckets & wide IAM roles|Default VPC pitfalls|Over-permissive SGs|Publicly exposed metadata services","Which one have you fixed recently?",#CloudSecurity #AWS #Azure #GCP
+9,SLSA & secure build pipelines,"Reproducible builds basics|Provenance & attestation|Isolate runners/secrets|Pre-merge checks as control gates","How reproducible are your builds today?",#SLSA #SupplyChain #CI
+10,Stopping MFA fatigue (push bombing),"Number-matching & per-session prompts|Geo/velocity checks|Lockouts on spikes|Educate on ‘deny by default’","Do you enforce number matching yet?",#MFA #Identity #SecurityAwareness
+11,Adversarial ML (evasion & poisoning),"Define threat models|Robust training & evaluation|Out-of-distribution detection|Red-team your models","What model would you test first?",#MLSecurity #AdversarialML #AI
+12,Purple-team win stories,"Work backwards from hypothesis|Share TTPs with blue team|Automate replay in CI|Track resilience metrics","What purple exercise moved the needle for you?",#PurpleTeam #Detection #ATTCK
+13,DLP for modern SaaS,"Classify data by business impact|Inline vs API-based DLP|Context-aware policies|Balance friction vs risk","What’s your riskiest SaaS right now?",#DLP #SaaS #DataSecurity
+14,EDR vs XDR in practice,"Data sources that matter|Correlation across identities/endpoints|Response playbooks|When EDR is enough","What data source improved response most?",#EDR #XDR #BlueTeam
+15,Homomorphic encryption (where it fits),"Compute on encrypted data basics|Latency & cost tradeoffs|Federated alternatives|Practical pilots","Would HE unlock a use case for you?",#PrivacyTech #Encryption #HE
+16,Post-quantum readiness,"NIST PQC algorithms status|Crypto agility playbook|Inventory long-lived secrets|Hybrid modes for transition","Where would you start crypto-agility?",#PQC #CryptoAgility #NIST
+17,Security automation with SOAR,"Trigger selection (don’t automate pain)|Human-in-the-loop approvals|Metrics: toil eliminated|Version control playbooks","What task will you automate next?",#SOAR #Automation #SecOps
+18,Threat intel you’ll actually use,"Prioritize by sector TTPs|Automate enrichment|Feedback loop from incidents|Kill feed FOMO","Which source improved outcomes?",#ThreatIntel #CTI #BlueTeam
+19,Phishing-resistant auth in the wild,"FIDO2 and device binding|Email channel hardening|Recovery flows|Measuring credential theft drop","What’s your recovery plan?",#Authentication #FIDO2 #EmailSecurity
+20,Shadow IT governance,"Discover via DNS/SSO logs|Tiered approvals|Vendor risk quick-triage|Sunset unused apps","How do you say ‘yes, safely’?",#ShadowIT #Governance #Risk
+21,Kubernetes security quick wins,"Namespace per team|Network policies|Pod security levels|Admission control with OPA/Gatekeeper","What’s your highest-risk cluster?",#Kubernetes #DevSecOps #CNCF
+22,Secrets management & rotation,"Short-lived credentials|Scoped access tokens|Automate rotation|Harden secret stores","What’s your longest-lived secret?",#Secrets #IAM #Automation
+23,Differential privacy for analytics,"Noise, epsilon, & utility|When DP makes sense|Pitfalls (linkage attacks)|Tooling to try","Where would DP protect value?",#Privacy #DataScience #AI
+24,Security metrics that matter,"Leading vs lagging indicators|Engineer-owned scorecards|Outcomes over outputs|Dashboards that drive action","Which metric changes behavior?",#Metrics #Leadership #SecOps
+25,AI for sensitive data discovery,"Embedding-based search|Pattern + context rules|Human review for matches|Delete vs quarantine policies","Where are your dark corners?",#DataDiscovery #AI #Governance
+26,Insider risk vs insider threat,"Culture & controls|Least privilege & logging|Detect anomalous exfil|Respect privacy boundaries","What control would you add?",#InsiderRisk #DLP #Culture
+27,Bug bounty lessons learned,"Write clear scopes|Duplicate handling|Reward fairness|Turn fixes into tests","What’s your best report?",#BugBounty #AppSec #Vulnerability
+28,Deepfakes & social engineering,"Voice cloning defense|Verified channels|Awareness with drills|Incident templates","How do you verify requests?",#Deepfakes #SocialEngineering #AI
+29,Email auth done right (SPF/DKIM/DMARC),\"Enforce alignment policies|Monitor DMARC reports|Third-party senders checklist|Gradual reject rollout\",\"Where are you on DMARC?\",#EmailSecurity #DMARC #SPF #DKIM
+30,Red-teaming LLMs (safely),\"Set boundaries & goals|Jailbreak taxonomy|Safety eval harness|Patch & re-test cadence\",\"Which LLM will you probe first?\",#RedTeam #LLMSecurity #AI
