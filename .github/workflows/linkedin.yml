@@ -21,21 +21,16 @@ jobs:
       NTFY_URL: https://ntfy.sh
       NTFY_TOPIC: ${{ secrets.NTFY_TOPIC }}
       LINKEDIN_VERSION: '202507'
-      # Optional: allow either window on the anchor day for a predictable first post
-      # ALLOW_BOTH_WINDOWS_FIRST_DAY: "1"
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-
       - name: Install dependencies
         run: pip install requests
-
+      
       - name: Sanity check
         run: |
           echo "TOPICS_CSV=$TOPICS_CSV"
@@ -43,14 +38,5 @@ jobs:
           test -f "$TOPICS_CSV" || (echo "❌ Missing $TOPICS_CSV"; exit 1)
           head -n 2 "$TOPICS_CSV"
 
-      # Normal automated behaviour for scheduled runs
-      - name: Run auto-poster (scheduled)
-        if: ${{ github.event_name != 'workflow_dispatch' }}
-        run: python scripts/run.py
-
-      # Immediate post for manual tests (skips cadence & waiting)
-      - name: Run auto-poster (manual force)
-        if: ${{ github.event_name == 'workflow_dispatch' }}
-        env:
-          FORCE_POST: "1"
+      - name: Run auto-poster
         run: python scripts/run.py
