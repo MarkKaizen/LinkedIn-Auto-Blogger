@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 370
     env:
       TIMEZONE: America/Toronto
-      TOPICS_CSV: topics.csv
+      TOPICS_CSV: content/topics.csv
       CRON_SCHEDULE: ${{ github.event.schedule }}
       LINKEDIN_CLIENT_ID: ${{ secrets.LINKEDIN_CLIENT_ID }}
       LINKEDIN_CLIENT_SECRET: ${{ secrets.LINKEDIN_CLIENT_SECRET }}
