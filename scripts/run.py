@@ -20,10 +20,6 @@ NTFY_TOPIC = os.getenv("NTFY_TOPIC", "")
 LI_VERSION = os.getenv("LINKEDIN_VERSION", "202507")  # YYYYMM; keep recent
 MAX_LEN = 2900  # stay under official 3000 char cap
 
-# --- New flags ---
-FORCE_POST = os.getenv("FORCE_POST", "0") == "1"  # manual override for immediate posting
-ALLOW_BOTH_WINDOWS_FIRST_DAY = os.getenv("ALLOW_BOTH_WINDOWS_FIRST_DAY", "0") == "1"  # anchor day convenience
-
 def is_posting_day(today: datetime.date) -> bool:
     # Every 2 days vs anchor date, in local time
     anchor = datetime.date.fromisoformat(ANCHOR_DATE)
@@ -69,11 +65,8 @@ def ntfy_send(title, message, tags=None, priority=3):
     if tags:
         headers["Tags"] = ",".join(tags)
     url = f"{NTFY_URL.rstrip('/')}/{NTFY_TOPIC}"
-    try:
-        resp = requests.post(url, data=message.encode("utf-8"), headers=headers, timeout=20)
-        print(f"[ntfy] {resp.status_code}")
-    except Exception as e:
-        print(f"[ntfy] send failed: {e}")
+    resp = requests.post(url, data=message.encode("utf-8"), headers=headers, timeout=20)
+    print(f"[ntfy] {resp.status_code}")
 
 def refresh_access_token():
     if not all([CLIENT_ID, CLIENT_SECRET, REFRESH_TOKEN]):
@@ -107,7 +100,7 @@ def compose_post(row):
         f"Question: {cta}"
     )
     # Trim if needed
-    post = body.strip()[:MAX_LEN - len("\n\n") - len(hashtags)]
+    post = body.strip()[:MAX_LEN- len("\n\n") - len(hashtags)]
     post = f"{post}\n\n{hashtags}"
     return post
 
@@ -146,32 +139,25 @@ def main():
     now_local = datetime.datetime.now(ZoneInfo(TIMEZONE))
     today = now_local.date()
 
-    print(f"[info] FORCE_POST={FORCE_POST} ALLOW_BOTH_WINDOWS_FIRST_DAY={ALLOW_BOTH_WINDOWS_FIRST_DAY}")
-    print(f"[info] Today={today} LocalTime={now_local.strftime('%H:%M %Z')}")
+    # Gate days (every 2 days)
+    if not is_posting_day(today):
+        print("[info] Not a posting day. Exiting.")
+        return
 
-    # Determine today's chosen window (0=morning, 1=afternoon)
+    # Gate window (morning vs afternoon alternation)
     chosen_window = choose_window_index(today)
-
-    # --- Posting gates (skip when FORCE_POST) ---
-    if not FORCE_POST:
-        if not is_posting_day(today):
-            print("[info] Not a posting day. Exiting.")
-            return
-
-        same_day_as_anchor = (today == datetime.date.fromisoformat(ANCHOR_DATE))
-        # On anchor day, optionally allow both windows
-        if not (ALLOW_BOTH_WINDOWS_FIRST_DAY and same_day_as_anchor):
-            if this_run_slot() != chosen_window:
-                print("[info] This slot is not chosen window today. Exiting.")
-                return
+    if this_run_slot() != chosen_window:
+        print("[info] This slot is not chosen window today. Exiting.")
+        return
 
     # Determine random offset inside window and pre-notify 10 minutes earlier
     # Morning window runs at 12:00 UTC; allow up to 5 hours -> 0..300 min
     # Afternoon window runs at 17:00 UTC; allow up to 4 hours -> 0..240 min
     max_offset = 300 if chosen_window == 0 else 240
-    offset = 0 if FORCE_POST else random.randint(0, max_offset)
-    pre_offset = 0 if FORCE_POST else max(0, offset - 10)
+    offset = random.randint(0, max_offset)
+    pre_offset = max(0, offset - 10)
 
+    # Sleep until 10 minutes before post
     if pre_offset > 0:
         print(f"[sleep] Waiting {pre_offset} minutes until pre-notify...")
         time.sleep(pre_offset * 60)
@@ -185,19 +171,16 @@ def main():
     # Pre-notify
     sched_time = now_local + datetime.timedelta(minutes=10 + (offset - pre_offset))
     ntfy_send(
-        title=("LinkedIn Auto-Post (Forced)" if FORCE_POST else "LinkedIn Auto-Post (10 min heads-up)"),
-        message=(f"Next post at approx {sched_time.strftime('%Y-%m-%d %H:%M %Z')} "
+        title="LinkedIn Auto-Post (10 min heads-up)",
+        message=(f"Next post in ~10 minutes at {sched_time.strftime('%Y-%m-%d %H:%M %Z')} "
                  f"\nTitle: {row['title']}\nPreview:\n\n{planned_text[:400]}…"),
-        tags=["rocket" if FORCE_POST else "spiral_calendar","memo"],
+        tags=["spiral_calendar","memo"],
         priority=4
     )
 
-    # Final wait before posting (skip when forced)
-    if FORCE_POST:
-        print("[sleep] FORCE_POST set; skipping final 10-minute wait.")
-    else:
-        print("[sleep] Final 10-minute wait before posting...")
-        time.sleep(10 * 60)
+    # Sleep last 10 minutes
+    print("[sleep] Final 10-minute wait before posting...")
+    time.sleep(10 * 60)
 
     # Post
     try:
