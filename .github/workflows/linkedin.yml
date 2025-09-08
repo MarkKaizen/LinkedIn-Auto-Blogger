@@ -38,5 +38,8 @@ jobs:
           test -f "$TOPICS_CSV" || (echo "❌ Missing $TOPICS_CSV"; exit 1)
           head -n 2 "$TOPICS_CSV"
 
-      - name: Run auto-poster
+      - name: Run auto-poster (manual force)
+        if: ${{ github.event_name == 'workflow_dispatch'}}
+        env:
+          FORCE_POST: "1"
         run: python scripts/run.py
