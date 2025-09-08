@@ -35,6 +35,7 @@ jobs:
         run: |
           ls -la
           test -f "$TOPICS_CSV" || (echo "❌ Missing $TOPICS_CSV"; exit 1)
+          head -n 2 "$TOPICS_CSV"
 
       - name: Run auto-poster
         run: python scripts/run.py
