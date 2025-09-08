@@ -27,5 +27,6 @@ id,title,outline,cta,hashtags
 26,Insider risk vs insider threat,"Culture & controls|Least privilege & logging|Detect anomalous exfil|Respect privacy boundaries","What control would you add?",#InsiderRisk #DLP #Culture
 27,Bug bounty lessons learned,"Write clear scopes|Duplicate handling|Reward fairness|Turn fixes into tests","What’s your best report?",#BugBounty #AppSec #Vulnerability
 28,Deepfakes & social engineering,"Voice cloning defense|Verified channels|Awareness with drills|Incident templates","How do you verify requests?",#Deepfakes #SocialEngineering #AI
-29,Email auth done right (SPF/DKIM/DMARC),\"Enforce alignment policies|Monitor DMARC reports|Third-party senders checklist|Gradual reject rollout\",\"Where are you on DMARC?\",#EmailSecurity #DMARC #SPF #DKIM
-30,Red-teaming LLMs (safely),\"Set boundaries & goals|Jailbreak taxonomy|Safety eval harness|Patch & re-test cadence\",\"Which LLM will you probe first?\",#RedTeam #LLMSecurity #AI
+29,Email auth done right (SPF/DKIM/DMARC),\"Enforce alignment policies|Monitor DMARC reports|Third-party senders checklist|Gradual reject rollout\",\"Where are you on DMARC?",#EmailSecurity #DMARC #SPF #DKIM
+30,Red-teaming LLMs (safely),\"Set boundaries & goals|Jailbreak taxonomy|Safety eval harness|Patch & re-test cadence\",\"Which LLM will you probe first?",#RedTeam #LLMSecurity #AI
+
