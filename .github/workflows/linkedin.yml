@@ -30,5 +30,11 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: pip install requests
+      
+      - name: Sanity check
+        run: |
+          ls -la
+          test -f "$TOPICS_CSV" || (echo "❌ Missing $TOPICS_CSV"; exit 1)
+
       - name: Run auto-poster
         run: python scripts/run.py
